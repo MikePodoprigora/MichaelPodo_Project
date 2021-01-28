@@ -12,18 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 public class OpenHomePageTests extends TestBase{
 
-    WebDriver wd;
-
-    @BeforeMethod
-    public void setUp(){
-        wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wd.manage().window().maximize();
-
-        wd.get("https://ilcarro-dev-v1.firebaseapp.com/");
-
-    }
-
     @Test
     public void homePageTest(){
         System.out.println("Site is opened");
@@ -33,37 +21,7 @@ public class OpenHomePageTests extends TestBase{
 //        isFindCarFormPresent2();
     }
 
-    //1t method
-    public boolean isElementPresent(By locator){
-        return wd.findElements(locator).size()>0;
-    }
-    public boolean isFindCarFormPresent(){
-        return isElementPresent(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form"));
-    }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    // 2nd method
-//    public boolean isFindCarFormPresent2(){
-//        return isElementPresent2(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form");
-//    }
-//
-//
-    public boolean isElementPresent2(By by){
-        try{
-            wd.findElement(by);
-            return true;
-        }catch (NoSuchElementException ex){
-            return false;
-        }
-    }
-
-
-
-    @AfterMethod(enabled = false)
-    public void tearDown(){
-        wd.quit();
-
-    }
 }
