@@ -31,12 +31,12 @@ public class TestBase {
         return isElementPresent(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form"));
     }
 
-    // 2nd method
+     //2nd method
 //    public boolean isFindCarFormPresent2(){
 //        return isElementPresent2(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form");
 //    }
-//
-//
+
+
     public boolean isElementPresent2(By by){
         try{
             wd.findElement(by);

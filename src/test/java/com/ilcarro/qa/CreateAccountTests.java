@@ -19,15 +19,13 @@ public class CreateAccountTests extends TestBase{
     @Test
     public void testSignUp(){
         //click on SignUp button
-        wd.findElement(By.cssSelector("[href='/signup']")).click();
+        click(By.cssSelector("[href='/signup']"));
         // assert is element present on the page
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
 
         // to fill registration form
-        wd.findElement(By.cssSelector("#first_name")).click();
-        wd.findElement(By.cssSelector("#first_name")).clear();
-        wd.findElement(By.cssSelector("#first_name")).sendKeys("AS");
+        type(By.cssSelector("#first_name"), "AS");
 
         wd.findElement(By.cssSelector("#second_name")).click();
         wd.findElement(By.cssSelector("#second_name")).clear();
@@ -42,14 +40,26 @@ public class CreateAccountTests extends TestBase{
         wd.findElement(By.cssSelector("#password")).sendKeys("A1aaaaaaa");
 
         //check policy button
-        wd.findElement(By.cssSelector("#check_policy")).click();
+       // wd.findElement(By.cssSelector("#check_policy")).click();
+        click(By.cssSelector("#check_policy")); // same thing like we did, only with the method "click";
 
         //click submit button
+        click(By.cssSelector("[type='submit']"));
 
         //check login form displayed
 
 
+    }
 
+
+    private void type(By locator, String text) {
+        wd.findElement(locator).click();
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+    }
+
+    public void click(By locator){
+        wd.findElement(locator).click();
     }
 
 
