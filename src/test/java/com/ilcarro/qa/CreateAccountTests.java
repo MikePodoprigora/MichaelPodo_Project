@@ -45,7 +45,7 @@ public class CreateAccountTests extends TestBase{
         wd.findElement(By.cssSelector("#check_policy")).click();
 
         //click submit button
-        
+
         //check login form displayed
 
 
