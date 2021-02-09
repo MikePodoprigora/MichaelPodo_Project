@@ -51,4 +51,39 @@ public class TestBase {
         wd.quit();
 
     }
+
+    public boolean isLoginFormPresent() {
+        return isElementPresent(By.cssSelector(".Login_login__right_block__1niYm"));
+    }
+
+    protected void type(By locator, String text) {
+//        wd.findElement(locator).click();   // simple form with click function, lock down
+        click(locator);
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+    }
+
+    public void click(By locator){
+        wd.findElement(locator).click();
+    }
+
+    public void submitForm() {
+        click(By.cssSelector("[type='submit']"));
+    }
+
+    public boolean isSignUpTabPresentInHeader() {
+        return isElementPresent(By.cssSelector("[href='/signup']"));
+    }
+
+    public void logOut() {
+        click(By.xpath("//a[contains(., 'logOut')]"));
+    }
+
+    public void clickLoginTabOnHeader() {
+        click(By.cssSelector("[href='/login']"));
+    }
+
+    public boolean isUserLoggedIn() {
+        return isElementPresent(By.xpath("//a[contains(., 'logOut')]"));
+    }
 }
