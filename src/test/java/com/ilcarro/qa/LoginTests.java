@@ -26,7 +26,7 @@ public class LoginTests extends TestBase{
 
 
     //fillLoginForm
-    type(By.name("email"),"aa@bb109.com");
+    type(By.name("email"),"aa@bb222.com");
     type(By.name("password"), "1Aaaaaaaa");
 
 

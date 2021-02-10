@@ -29,7 +29,7 @@ public class CreateAccountTests extends TestBase{
         // to fill registration form
         type(By.cssSelector("#first_name"), "AS");
         type(By.cssSelector("#second_name"),"FV");
-        type(By.cssSelector("#email"), "asdfy@cc111.com");
+        type(By.cssSelector("#email"), "aa@bb222.com");
         type(By.cssSelector("#password"),"A1aaaaaaa");
 
 
