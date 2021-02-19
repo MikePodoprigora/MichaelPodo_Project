@@ -6,12 +6,13 @@ import org.testng.annotations.Test;
 public class AddCarTests extends TestBase {
     @Test
     public void testFormLetTheCarWork(){
+//        click(By.cssSelector(".let-carwork-style_let_car_location__30BIh"));
 
 
-        type(By.cssSelector("[name='country']"), "Canada");
+        type(By.name("country"), "Canada");
         type(By.cssSelector(".address"), "Bloor Street");
         type(By.cssSelector(".distance_included"), "500");
-        type(By.cssSelector(".serial_number"), "1234567");
+        type(By.cssSelector(".serial_number"), "12345678");
         type(By.cssSelector(".brand"), "Volkswagen");
         type(By.cssSelector(".model"), "Atlas");
         type(By.cssSelector(".year"), "2021");
@@ -23,7 +24,7 @@ public class AddCarTests extends TestBase {
         type(By.cssSelector(".doors"), "4");
         type(By.cssSelector(".seats"), "5");
         type(By.cssSelector(".class"), "E");
-        type(By.cssSelector("[name='about']"), "ewfeybrfyegyfgyerg");
+        type(By.name("about"), "ewfeybrfyegyfgyerg");
         type(By.cssSelector(".type_feature"), "egregegfreg");
         type(By.cssSelector(".price"), "40");
 
