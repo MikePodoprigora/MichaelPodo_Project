@@ -25,10 +25,14 @@ public class CreateAccountTests extends TestBase{
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
 
         // to fill registration form
-        fillRegistrationForm("AS", "FV", "aa@bb2279.com", "A1aaaaaaa");
+        fillRegistrationForm(
+                new User()
+                        .setFirstName("AS")
+                        .setSecondName("FV")
+                        .setEmail("abba@bb2279.com")
+                        .setPassword("A1bbaaaaaaa"));
 
         click(By.cssSelector("#check_policy")); // same thing like we did, only with the method "click";
-
         pause(2000);
 
         //click submit button
@@ -46,25 +50,33 @@ public class CreateAccountTests extends TestBase{
 
 
     @Test
-    public void testSignUp2() throws InterruptedException {
-        //click on SignUp button
+    public void testSignUpWithoutPassword() throws InterruptedException {
+
         click(By.cssSelector("[href='/signup']"));
         Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
-        fillRegistrationForm("Vasya", "Katz","vasya.katz555@gmail.com", "Vasiliy11111");
+        fillRegistrationForm(
+                new User()
+                        .setFirstName("Vasya")
+                        .setSecondName("Katz")
+                        .setEmail("bb@bb8744.com"));
+
         click(By.cssSelector("#check_policy")); // same thing like we did, only with the method "click";
         pause(3000);
-        submitForm();
+
+
+        //click submit button
+        //submitForm();
 
         //check login form displayed
-        Assert.assertTrue(isLoginFormPresent());  // this method will call the method "isElementPresent"
+       // Assert.assertTrue(isLoginFormPresent());
 
     }
 
-    public void fillRegistrationForm(String firstName, String secondName, String email, String password) {
-        type(By.cssSelector("#first_name"), firstName);
-        type(By.cssSelector("#second_name"), secondName);
-        type(By.cssSelector("#email"), email);
-        type(By.cssSelector("#password"), password);
+    public void fillRegistrationForm(User user) {
+        type(By.name("first_name"), user.getFirstName());
+        type(By.name("second_name"), user.getSecondName());
+        type(By.name("email"), user.getEmail());
+        type(By.name("password"), user.getPassword());
     }
 
 
