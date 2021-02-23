@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
@@ -14,7 +15,7 @@ public class TestBase {
     static WebDriver wd;
 
     @BeforeSuite
-    public void setUp(){
+    public void setUp() {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
@@ -24,31 +25,31 @@ public class TestBase {
     }
 
     //1t method
-    public boolean isElementPresent(By locator){
-        return wd.findElements(locator).size()>0;
+    public boolean isElementPresent(By locator) {
+        return wd.findElements(locator).size() > 0;
     }
 
-    public boolean isFindCarFormPresent(){
+    public boolean isFindCarFormPresent() {
         return isElementPresent(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form"));
     }
 
-     //2nd method
+    //2nd method
 //    public boolean isFindCarFormPresent2(){
 //        return isElementPresent2(By.cssSelector(".Main_mainpage__find_your_car__AHLkw form");
 //    }
 
 
-    public boolean isElementPresent2(By by){
-        try{
+    public boolean isElementPresent2(By by) {
+        try {
             wd.findElement(by);
             return true;
-        }catch (NoSuchElementException ex){
+        } catch (NoSuchElementException ex) {
             return false;
         }
     }
 
-    @AfterSuite(enabled = true)
-    public void tearDown(){
+    @AfterSuite(enabled = false)
+    public void tearDown() {
         wd.quit();
 
     }
@@ -58,13 +59,15 @@ public class TestBase {
     }
 
     protected void type(By locator, String text) {
-//        wd.findElement(locator).click();   // simple form with click function, lock down
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+
+        if (text != null) {
+            click(locator);
+            wd.findElement(locator).clear();
+            wd.findElement(locator).sendKeys(text);
+        }
     }
 
-    public void click(By locator){
+    public void click(By locator) {
         wd.findElement(locator).click();
     }
 

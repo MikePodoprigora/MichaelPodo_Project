@@ -1,19 +1,35 @@
 package com.ilcarro.qa;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AddCarTests extends TestBase {
-    @Test
-    public void testFormLetTheCarWork(){
-        click(By.cssSelector("[href='/car']"));
 
+//    @BeforeMethod
+//    public void ensurePreconditions(){
+//        if(!isUserLoggedIn()){
+//            logIn();
+//        }
+//    }
+//
+//    private void logIn() {
+//        fillLoginForm(new User().setEmail("abba@bb2279.com").setPassword("A1bbaaaaaaa"));
+//
+//        submitForm();
+//
+//    }
+
+    @Test
+    public void testFormLetTheCarWork() {
+        click(By.cssSelector(".header__nav [href='/car']"));
 
         fillCarForm(new Car()
                 .setCountry("Canada")
                 .setAddress("Bloor Street")
-                .setDistance_included("500")
-                .setSerial_number("12345678")
+                .setDistanceIncluded("500")
+                .setSerialNumber("12345678")
                 .setBrand("Volkswagen")
                 .setModel("Atlas")
                 .setYear("2021")
@@ -36,11 +52,43 @@ public class AddCarTests extends TestBase {
 
     }
 
+    @Test
+    public void NegativeTestAddCarWithoutDorsInfo(){
+
+        click(By.cssSelector(".header__nav [href='/car']"));
+
+        fillCarForm(new Car()
+                .setCountry("Canada")
+                .setAddress("Bloor Street")
+                .setDistanceIncluded("500")
+                .setSerialNumber("12345678")
+                .setBrand("Volkswagen")
+                .setModel("Atlas")
+                .setYear("2021")
+                .setEngine("3.5V6")
+                .setFuel_consumption("11")
+                .setFuel("92")
+                .setTransmission("Automatic")
+                .setWd("gregfregfre")
+                .setHorsepower("180")
+                .setTorque("3456")
+                .setSeats("5")
+                .setAuto_class("E")
+                .setAbout("ewfeybrfyegyfgyerg")
+                .setType_feature("egregegfreg")
+                .setPrice("40"));
+
+
+        submitForm();
+    }
+
+
+
     public void fillCarForm(Car car) {
         type(By.name("country"), car.getCountry());
         type(By.cssSelector(".address"), car.getAddress());
-        type(By.cssSelector(".distance_included"), car.getDistance_included());
-        type(By.cssSelector(".serial_number"), car.getSerial_number());
+        type(By.cssSelector(".distance_included"), car.getDistanceIncluded());
+        type(By.cssSelector(".serial_number"), car.getSerialNumber());
         type(By.cssSelector(".brand"), car.getBrand());
         type(By.cssSelector(".model"), car.getModel());
         type(By.cssSelector(".year"), car.getYear());

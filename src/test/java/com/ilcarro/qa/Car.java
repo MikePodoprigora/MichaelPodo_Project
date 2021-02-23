@@ -1,26 +1,26 @@
 package com.ilcarro.qa;
 
 public class Car {
-    private  String country;
-    private  String address;
-    private  String distance_included;
-    private  String serial_number;
-    private  String brand;
-    private  String model;
-    private  String year;
-    private  String engine;
-    private  String fuel_consumption;
-    private  String fuel;
-    private  String transmission;
-    private  String wd;
-    private  String horsepower;
-    private  String torque;
-    private  String doors;
-    private  String seats;
-    private  String auto_class;
-    private  String about;
-    private  String type_feature;
-    private  String price;
+    private String country;
+    private String address;
+    private String distanceIncluded;
+    private String serialNumber;
+    private String brand;
+    private String model;
+    private String year;
+    private String engine;
+    private String fuel_consumption;
+    private String fuel;
+    private String transmission;
+    private String wd;
+    private String horsepower;
+    private String torque;
+    private String doors;
+    private String seats;
+    private String auto_class;
+    private String about;
+    private String type_feature;
+    private String price;
 
 
     public Car setCountry(String country) {
@@ -33,13 +33,13 @@ public class Car {
         return this;
     }
 
-    public Car setDistance_included(String distance_included) {
-        this.distance_included = distance_included;
+    public Car setDistanceIncluded(String distanceIncluded) {
+        this.distanceIncluded = distanceIncluded;
         return this;
     }
 
-    public Car setSerial_number(String serial_number) {
-        this.serial_number = serial_number;
+    public Car setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
         return this;
     }
 
@@ -124,7 +124,6 @@ public class Car {
     }
 
 
-
     public String getCountry() {
         return country;
     }
@@ -133,12 +132,12 @@ public class Car {
         return address;
     }
 
-    public String getDistance_included() {
-        return distance_included;
+    public String getDistanceIncluded() {
+        return distanceIncluded;
     }
 
-    public String getSerial_number() {
-        return serial_number;
+    public String getSerialNumber() {
+        return serialNumber;
     }
 
     public String getBrand() {
