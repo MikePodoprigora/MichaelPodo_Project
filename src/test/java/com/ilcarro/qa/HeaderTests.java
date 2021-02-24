@@ -36,9 +36,9 @@ public class HeaderTests extends TestBase{
             wd.get("https://ilcarro-dev-v1.firebaseapp.com/"); // you have to go back from this field, Bug of this page
 
             //click on SignUp button
-        click(By.cssSelector("[href='/signup']"));
+        openRegistrationFormHeader();
         // assert is element present on the page
-            Assert.assertTrue(isElementPresent(By.cssSelector("form.signup__fields")));
+            Assert.assertTrue(isRegistrationFormOpened());
 
             //click on LogIn button
         click(By.cssSelector("[href='/login']"));

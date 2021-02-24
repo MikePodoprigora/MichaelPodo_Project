@@ -9,7 +9,7 @@ public class Car {
     private String model;
     private String year;
     private String engine;
-    private String fuel_consumption;
+    private String fuelConsumption;
     private String fuel;
     private String transmission;
     private String wd;
@@ -17,9 +17,9 @@ public class Car {
     private String torque;
     private String doors;
     private String seats;
-    private String auto_class;
+    private String autoClass;
     private String about;
-    private String type_feature;
+    private String typeFeature;
     private String price;
 
 
@@ -63,8 +63,8 @@ public class Car {
         return this;
     }
 
-    public Car setFuel_consumption(String fuel_consumption) {
-        this.fuel_consumption = fuel_consumption;
+    public Car setFuelConsumption(String fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
         return this;
     }
 
@@ -103,8 +103,8 @@ public class Car {
         return this;
     }
 
-    public Car setAuto_class(String auto_class) {
-        this.auto_class = auto_class;
+    public Car setAutoClass(String autoClass) {
+        this.autoClass = autoClass;
         return this;
     }
 
@@ -113,8 +113,8 @@ public class Car {
         return this;
     }
 
-    public Car setType_feature(String type_feature) {
-        this.type_feature = type_feature;
+    public Car setTypeFeature(String typeFeature) {
+        this.typeFeature = typeFeature;
         return this;
     }
 
@@ -156,8 +156,8 @@ public class Car {
         return engine;
     }
 
-    public String getFuel_consumption() {
-        return fuel_consumption;
+    public String getFuelConsumption() {
+        return fuelConsumption;
     }
 
     public String getFuel() {
@@ -188,16 +188,16 @@ public class Car {
         return seats;
     }
 
-    public String getAuto_class() {
-        return auto_class;
+    public String getAutoClass() {
+        return autoClass;
     }
 
     public String getAbout() {
         return about;
     }
 
-    public String getType_feature() {
-        return type_feature;
+    public String getTypeFeature() {
+        return typeFeature;
     }
 
     public String getPrice() {
