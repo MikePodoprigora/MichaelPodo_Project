@@ -1,17 +1,16 @@
 package com.ilcarro.qa;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateAccountTests extends TestBase{
+public class CreateAccountTests extends TestBase {
 
-//preconditions: user should logged out
+    //preconditions: user should logged out
     @BeforeMethod
-    public void ensurePreconditions(){
-        if(!isSignUpTabPresentInHeader()){     // if sign up not present
-            logOut();
+    public void ensurePreconditions() {
+        if (!app.getHeader().isSignUpTabPresentInHeader()) {     // if sign up not present
+            app.getUser().logOut();
         }
 
     }
@@ -20,46 +19,46 @@ public class CreateAccountTests extends TestBase{
     @Test
     public void testSignUp() throws InterruptedException {
         //click on SignUp button
-        openRegistrationFormHeader();
-        Assert.assertTrue(isRegistrationFormOpened());
+        app.getUser().openRegistrationFormHeader();
+        Assert.assertTrue(app.getUser().isRegistrationFormOpened());
 
-        fillRegistrationForm(
+        app.getUser().fillRegistrationForm(
                 new User()
                         .setFirstName("AS")
                         .setSecondName("FV")
                         .setEmail("abba@bb2279.com")
                         .setPassword("A1bbaaaaaaa"));
 
-        selectPolicyCheckBox();
-        pause(2000);
-        submitForm();
+        app.getUser().selectPolicyCheckBox();
+        app.getCar().pause(2000);
+        app.getCar().submitForm();
 
         //check login form displayed
-        Assert.assertTrue(isLoginFormPresent());
+        Assert.assertTrue(app.getUser().isLoginFormPresent());
 
     }
 
 
-    @Test
-    public void negativeTestSignUpWithoutPassword() throws InterruptedException {
-
-        openRegistrationFormHeader();
-        Assert.assertTrue(isRegistrationFormOpened());
-        fillRegistrationForm(
-                new User()
-                        .setFirstName("Vasya")
-                        .setSecondName("Katz")
-                        .setEmail("bb@bb8744.com"));
-
-        selectPolicyCheckBox();
-        pause(3000);
-
-        //click submit button
-        submitForm();
-        //check login form displayed
-        Assert.assertFalse(isLoginFormPresent());
-
-    }
+//    @Test
+//    public void negativeTestSignUpWithoutPassword() throws InterruptedException {
+//
+//        app.openRegistrationFormHeader();
+//        Assert.assertTrue(app.isRegistrationFormOpened());
+//        app.fillRegistrationForm(
+//                new User()
+//                        .setFirstName("Vasya")
+//                        .setSecondName("Katz")
+//                        .setEmail("bb@bb8744.com"));
+//
+//        app.selectPolicyCheckBox();
+//        app.getCar().pause(3000);
+//
+//        //click submit button
+//        app.getCar().submitForm();
+//        //check login form displayed
+//        Assert.assertFalse(app.isLoginFormPresent());
+//
+//    }
 
 
 }

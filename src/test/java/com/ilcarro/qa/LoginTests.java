@@ -1,39 +1,38 @@
 package com.ilcarro.qa;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTests extends TestBase{
+public class LoginTests extends TestBase {
 
     @BeforeMethod
-    public void ensurePreconditions(){
+    public void ensurePreconditions() {
         //goTo login page
-        if (!isLoginFormPresent()){
+        if (!app.getUser().isLoginFormPresent()) {
             // if user logged in, click logout, after go to login
-            if (isUserLoggedIn()){
-                logOut();
+            if (app.getUser().isUserLoggedIn()) {
+                app.getUser().logOut();
             }
-            clickLoginTabOnHeader();
+            app.getHeader().clickLoginTabOnHeader();
         }
 
     }
 
     @Test
-    public void loginRegisteredUserPositiveTest(){
+    public void loginRegisteredUserPositiveTest() {
 
-        fillLoginForm(new User().setEmail("abba@bb2279.com").setPassword("A1bbaaaaaaa"));
+        app.getUser().fillLoginForm(new User().setEmail("abba@bb2279.com").setPassword("A1bbaaaaaaa"));
 
-        submitForm();
+        app.getCar().submitForm();
 
-    //Assert userLoggedIn
-        Assert.assertTrue(isUserLoggedIn());
-        String email = getEmailTextFromHeader();
+        //Assert userLoggedIn
+        Assert.assertTrue(app.getUser().isUserLoggedIn());
+        String email = app.getHeader().getEmailTextFromHeader();
         System.out.println(email);
         Assert.assertEquals(email, "abba@bb2279.com");
 
-}
+    }
 
 
 }

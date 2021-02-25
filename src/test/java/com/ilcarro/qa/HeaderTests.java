@@ -5,48 +5,42 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class HeaderTests extends TestBase{
+public class HeaderTests extends TestBase {
 
-    //check if element present on the header page
     @BeforeMethod
     public void ensureHeaderElementsExist() {
-
 
     }
 
     @Test
-    public void testHederElements(){
-        // assert if elements are present on the page
+    public void testHederElements() {
 
-            //search field
-        click(By.cssSelector("[href=\"/search\"]"));
+        //search field
+        app.getCar().click(By.cssSelector("[href=\"/search\"]"));
         //checking presents
-            Assert.assertTrue(isElementPresent(By.cssSelector("form .search-sidebar__form")));
+        Assert.assertTrue(app.getCar().isElementPresent(By.cssSelector("form .search-sidebar__form")));
 
-
-            //let the car work
-        click(By.cssSelector("[href=\"/car\"]"));
+        //let the car work
+        app.getCar().click(By.cssSelector("[href=\"/car\"]"));
         //checking presents
-            Assert.assertTrue(isElementPresent(By.cssSelector("form .let-carwork-style_lets_car_form__2fYnX")));
+        Assert.assertTrue(app.getCar().isElementPresent(By.cssSelector("form .let-carwork-style_lets_car_form__2fYnX")));
 
-            //terms of use
-        click(By.cssSelector("[href=\"/terms\"]"));
+        //terms of use
+        app.getCar().click(By.cssSelector("[href=\"/terms\"]"));
+
         //checking presents
-            Assert.assertTrue(isElementPresent(By.xpath("//h1[contains(., 'Terms')]")));
-            wd.get("https://ilcarro-dev-v1.firebaseapp.com/"); // you have to go back from this field, Bug of this page
+        Assert.assertTrue(app.getCar().isElementPresent(By.xpath("//h1[contains(., 'Terms')]")));
 
-            //click on SignUp button
-        openRegistrationFormHeader();
+        //click on SignUp button
+        app.getUser().openRegistrationFormHeader();
+        Assert.assertTrue(app.getUser().isRegistrationFormOpened());
+
+        //click on LogIn button
+        app.getCar().click(By.cssSelector("[href='/login']"));
         // assert is element present on the page
-            Assert.assertTrue(isRegistrationFormOpened());
-
-            //click on LogIn button
-        click(By.cssSelector("[href='/login']"));
-        // assert is element present on the page
-            Assert.assertTrue(isElementPresent(By.cssSelector("form .input-field-style_input_formik_field__3rJjj")));
+        Assert.assertTrue(app.getCar().isElementPresent(By.cssSelector("form .input-field-style_input_formik_field__3rJjj")));
 
     }
-
 
 
 }

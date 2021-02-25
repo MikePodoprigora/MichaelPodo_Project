@@ -8,13 +8,13 @@ public class AddCarTests extends TestBase {
     @Test
     public void testFormLetTheCarWorkForLoggedInUser() throws InterruptedException {
 
-        if(!isUserLoggedIn()){
-            logIn();
+        if(!app.getUser().isUserLoggedIn()){
+            app.getUser().logIn();
         }
 
-        openAddCarFormFromHeader();
+        app.getCar().openAddCarFormFromHeader();
 
-        fillCarForm(new Car()
+        app.getCar().fillCarForm(new Car()
                 .setCountry("Canada")
                 .setAddress("Bloor Street")
                 .setDistanceIncluded("500")
@@ -37,20 +37,20 @@ public class AddCarTests extends TestBase {
                 .setPrice("40"));
 
 
-        pause(1000);
-        submitForm();
+        app.getCar().pause(1000);
+        app.getCar().submitForm();
 
     }
 
     @Test
     public void testFormLetTheCarWorkForNotLoggedInUser() throws InterruptedException {
-        if (isUserLoggedIn()){
-            logOut();
+        if (app.getUser().isUserLoggedIn()){
+            app.getUser().logOut();
         }
 
-        openAddCarFormFromHeader();
+        app.getCar().openAddCarFormFromHeader();
 
-        fillCarForm(new Car()
+        app.getCar().fillCarForm(new Car()
                 .setCountry("Canada")
                 .setAddress("Bloor Street")
                 .setDistanceIncluded("500")
@@ -73,17 +73,17 @@ public class AddCarTests extends TestBase {
                 .setPrice("40"));
 
 
-        pause(1000);
-        submitForm();
+        app.getCar().pause(1000);
+        app.getCar().submitForm();
 
     }
 
     @Test
     public void NegativeTestAddCarWithoutDorsInfo(){
 
-        openAddCarFormFromHeader();
+        app.getCar().openAddCarFormFromHeader();
 
-        fillCarForm(new Car()
+        app.getCar().fillCarForm(new Car()
                 .setCountry("Canada")
                 .setAddress("Bloor Street")
                 .setDistanceIncluded("500")
@@ -105,7 +105,7 @@ public class AddCarTests extends TestBase {
                 .setPrice("40"));
 
 
-        submitForm();
+        app.getCar().submitForm();
     }
 
 
