@@ -37,7 +37,6 @@ public class HelperBase {
     public void submitForm() {
         new WebDriverWait(wd, 15)  // function for waiting the clickable button
                 .until(ExpectedConditions.elementToBeClickable(By.cssSelector("[type='submit']"))).click();
-//        click(By.cssSelector("[type='submit']"));
     }
 
     public void pause(int millis) throws InterruptedException {

@@ -31,7 +31,6 @@ public class LoginTests extends TestBase {
         String email = app.getHeader().getEmailTextFromHeader();
         System.out.println(email);
         Assert.assertEquals(email, "abba@bb2279.com");
-
     }
 
 

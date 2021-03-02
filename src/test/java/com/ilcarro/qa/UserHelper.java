@@ -16,7 +16,6 @@ public class UserHelper extends HelperBase{
     public void logIn() {
         click(By.cssSelector("[href='/login']"));
         fillLoginForm(new User().setEmail("abba@bb2279.com").setPassword("A1bbaaaaaaa"));
-
         submitForm();
     }
 

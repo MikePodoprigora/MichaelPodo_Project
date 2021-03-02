@@ -36,7 +36,6 @@ public class AddCarTests extends TestBase {
                 .setTypeFeature("egregegfreg")
                 .setPrice("40"));
 
-
         app.getCar().pause(1000);
         app.getCar().submitForm();
 
@@ -72,7 +71,6 @@ public class AddCarTests extends TestBase {
                 .setTypeFeature("egregegfreg")
                 .setPrice("40"));
 
-
         app.getCar().pause(1000);
         app.getCar().submitForm();
 
@@ -103,7 +101,6 @@ public class AddCarTests extends TestBase {
                 .setAbout("ewfeybrfyegyfgyerg")
                 .setTypeFeature("egregegfreg")
                 .setPrice("40"));
-
 
         app.getCar().submitForm();
     }
