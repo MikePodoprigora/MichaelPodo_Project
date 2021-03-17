@@ -1,5 +1,6 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.fw;
 
+import com.ilcarro.qa.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

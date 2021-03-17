@@ -1,5 +1,6 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.tests;
 
+import com.ilcarro.qa.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

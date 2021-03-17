@@ -1,2 +1,2 @@
 # MichaelPodo_Project
-Selenium-java tests for ilCarro website
+Selenium-java com.ilcarro.qa.com.ilcarro.qa.fw.fw.tests for ilCarro website

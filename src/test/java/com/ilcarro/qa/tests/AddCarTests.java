@@ -1,11 +1,12 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.tests;
 
+import com.ilcarro.qa.model.Car;
 import org.testng.annotations.Test;
 
 public class AddCarTests extends TestBase {
 
 
-    @Test
+    @Test(enabled = true)
     public void testFormLetTheCarWorkForLoggedInUser() throws InterruptedException {
 
         if(!app.getUser().isUserLoggedIn()){
@@ -77,7 +78,7 @@ public class AddCarTests extends TestBase {
     }
 
     @Test
-    public void NegativeTestAddCarWithoutDorsInfo(){
+    public void NegativeTestAddCarWithoutDoorsInfo(){
 
         app.getCar().openAddCarFormFromHeader();
 

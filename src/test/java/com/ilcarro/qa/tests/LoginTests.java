@@ -1,5 +1,6 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.tests;
 
+import com.ilcarro.qa.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,7 +23,10 @@ public class LoginTests extends TestBase {
     @Test
     public void loginRegisteredUserPositiveTest() {
 
-        app.getUser().fillLoginForm(new User().setEmail("abba@bb2279.com").setPassword("A1bbaaaaaaa"));
+        // Login user
+        app.getUser().fillLoginForm(new User()
+                .setEmail("aa@bb109.com")
+                .setPassword("1Aaaaaaaa"));
 
         app.getCar().submitForm();
 
@@ -30,8 +34,17 @@ public class LoginTests extends TestBase {
         Assert.assertTrue(app.getUser().isUserLoggedIn());
         String email = app.getHeader().getEmailTextFromHeader();
         System.out.println(email);
-        Assert.assertEquals(email, "abba@bb2279.com");
+        Assert.assertEquals(email, "aa@bb109.com");
     }
 
+    @Test(enabled = true)
+    public void loginUserWithoutPasswordTests() throws InterruptedException {
+        System.out.println("User without password login test is started");
 
+        // go to login page and log in
+        app.getUser().fillLoginForm(new User()
+                .setEmail("aa@bb109.com"));
+
+        app.getUser().pause(2000);
+    }
 }

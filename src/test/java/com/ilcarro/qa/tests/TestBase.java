@@ -1,5 +1,6 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.tests;
 
+import com.ilcarro.qa.fw.ApplicationManager;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 

@@ -1,5 +1,6 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.fw;
 
+import com.ilcarro.qa.model.Car;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,7 +18,7 @@ public class CarHelper extends HelperBase{
     }
 
     public void fillCarForm(Car car) {
-        type(By.name("country"), car.getCountry());
+        type(By.cssSelector("[name=country]"), car.getCountry());
         type(By.cssSelector(".address"), car.getAddress());
         type(By.cssSelector(".distance_included"), car.getDistanceIncluded());
         type(By.cssSelector(".serial_number"), car.getSerialNumber());

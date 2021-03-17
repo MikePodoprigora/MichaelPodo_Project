@@ -1,4 +1,4 @@
-package com.ilcarro.qa;
+package com.ilcarro.qa.tests;
 
 import org.testng.annotations.Test;
 
